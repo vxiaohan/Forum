@@ -10,8 +10,8 @@ import java.sql.SQLException;
 public class DatabaseDAO {
    private static Connection connection;
    private static final String DRIVER="com.mysql.jdbc.Driver";
-   private static final String URL="jdbc:mysql://115.28.34.98:3306/User";
-   private static final String NAME="root";;
+   private static final String URL="jdbc:mysql://localhost:3306/userinfo";
+   private static final String NAME="root";
    private static final String PASSWORD="f1020@BUAA";
    static{
 	   try {

@@ -17,7 +17,7 @@ public class LoginAction extends ActionSupport{
   public void setUsername(String username) {
 	this.username = username;
   }
-  public String checkLogin(){
+  public String login(){
 	  if(this.username.equals("admin")&&this.password.equals("acc"))
 		  return SUCCESS;
 	  else 
