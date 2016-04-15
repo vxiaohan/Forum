@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+  		"-//Apache Struts//XWork Validator 1.0.2//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+  		
+<validators>
+	<field name="username">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>UserName is required</message>
+		</field-validator>
+	</field>
+	
+	<field name="name">
+	    <field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>Name is required</message>
+		</field-validator>
+	</field>
+	
+	<field name="password">
+	    <field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>PassWord is required</message>
+		</field-validator>
+	</field>
+	
+	<field name="nic">
+	    <field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>NickName is required</message>
+		</field-validator>
+	</field>
+	
+	<field name="age">
+	     <field-validator type="int">
+	          <param name="min">5</param>
+	          <param name="max">80</param>
+	          <message>年龄不符合要求</message>
+	     </field-validator>
+	</field>
+</validators>

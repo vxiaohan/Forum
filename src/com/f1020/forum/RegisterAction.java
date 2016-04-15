@@ -12,6 +12,11 @@ public class RegisterAction extends ActionSupport{
 	private String email;
 	private String phone;
 	private String selfshow;
+	public void validate() {
+		/*if((this.sex.equals(null))||(!this.sex.equals("ÄÐ"))||(!this.sex.equals("Å®"))){
+			addFieldError(sex, "ÐÔ±ðÌîÐ´´íÎó£¡");
+		}*/
+	}
 	public String register() throws Exception {
 		UsersDAO usersDAO=new UsersDAO();
 		boolean flag=usersDAO.findUsers(username);
