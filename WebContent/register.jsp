@@ -10,7 +10,7 @@
 <body>
   <center>
     <h3>用户注册</h3>
-    <s:form action="register" method="post">
+    <s:form action="registerAction" method="post">
        <s:textfield name="username" label="UserName"/>
        <s:password name="password" label="PassWord"/>
        <s:textfield name="name" label="Name"/>

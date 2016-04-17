@@ -32,11 +32,4 @@
 		</field-validator>
 	</field>
 	
-	<field name="age">
-	     <field-validator type="int">
-	          <param name="min">5</param>
-	          <param name="max">80</param>
-	          <message>年龄不符合要求</message>
-	     </field-validator>
-	</field>
 </validators>

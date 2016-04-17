@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.opensymphony.xwork2.config.Configuration;
+
 
 public class DatabaseDAO {
    private static Connection connection;

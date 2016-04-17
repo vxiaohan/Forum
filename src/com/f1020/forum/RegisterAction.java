@@ -1,8 +1,9 @@
 package com.f1020.forum;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
 
-public class RegisterAction extends ActionSupport{
+public class RegisterAction extends ActionSupport implements Preparable{
 	private String username;
 	private String password;
 	private String name;
@@ -12,35 +13,7 @@ public class RegisterAction extends ActionSupport{
 	private String email;
 	private String phone;
 	private String selfshow;
-	public void validate() {
-		/*if((this.sex.equals(null))||(!this.sex.equals("ÄÐ"))||(!this.sex.equals("Å®"))){
-			addFieldError(sex, "ÐÔ±ðÌîÐ´´íÎó£¡");
-		}*/
-	}
-	public String register() throws Exception {
-		UsersDAO usersDAO=new UsersDAO();
-		boolean flag=usersDAO.findUsers(username);
-		if(flag){
-			return INPUT;
-		}
-		Users users=new Users();
-		System.out.println(username);
-		users.setUsername(username);
-		users.setPassword(password);
-		users.setName(name);
-		users.setNic(nic);
-		users.setSex(sex);
-		users.setAge(age);
-		users.setEmail(email);
-		users.setPhone(phone);
-		users.setSelfshow(selfshow);
-		int i = usersDAO.saveUsers(users);
-		if(i>0){
-			return SUCCESS;
-		}else{
-			return INPUT;
-		}
-	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -94,5 +67,43 @@ public class RegisterAction extends ActionSupport{
 	}
 	public void setSelfshow(String selfshow) {
 		this.selfshow = selfshow;
+	}
+	
+	public void validate() {
+		if((sex.equals(null)) || (!sex.equals("Å®") && !sex.equals("ÄÐ"))){
+			addFieldError(sex, "ÐÔ±ðÌîÐ´´íÎó£¡");
+		}
+	}
+	
+	@Override
+	public String execute() throws Exception {  
+	    // TODO Auto-generated method stub  
+		UsersDAO usersDAO=new UsersDAO();
+		boolean flag=usersDAO.findUsers(username);
+		if(flag){
+			return INPUT;
+		}
+		Users users=new Users();
+		System.out.println(username);
+		users.setUsername(username);
+		users.setPassword(password);
+		users.setName(name);
+		users.setNic(nic);
+		users.setSex(sex);
+		users.setAge(age);
+		users.setEmail(email);
+		users.setPhone(phone);
+		users.setSelfshow(selfshow);
+		int i = usersDAO.saveUsers(users);
+		if(i>0){
+			return SUCCESS;
+		}else{
+			return INPUT;
+		}
+	}
+	@Override
+	public void prepare() throws Exception {
+		// TODO Auto-generated method stub
+		clearErrorsAndMessages();
 	}
 }
